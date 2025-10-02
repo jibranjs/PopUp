@@ -1,14 +1,14 @@
-const popUp = document.querySelector('.popup');
-const box = document.querySelector('.box');
-const close = document.querySelector('.close');
+const button = document.querySelector('button')
+const img = document.querySelector('img')
 
-popUp.addEventListener('click' , ()=>{
-    popUp.classList.add('hidden');
-    box.classList.remove('hidden');
-    
-close.addEventListener('click' , ()=>{
-    box.classList.add('hidden')
-    popUp.classList.remove('hidden')
-
-});
+button.addEventListener('click', () => {
+  fetch('https://dog.ceo/api/breeds/image/random')
+    .then((response) => response.json())
+    .then((json) => {
+      img.src = json.message
+      console.log(json);
+    });
+  
 })
+
+
