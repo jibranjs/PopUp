@@ -1,14 +1,25 @@
-const button = document.querySelector('button')
-const img = document.querySelector('img')
+const container = document.querySelector('.cantainer')
 
-button.addEventListener('click', () => {
-  fetch('https://dog.ceo/api/breeds/image/random')
-    .then((response) => response.json())
-    .then((json) => {
-      img.src = json.message
-      console.log(json);
-    });
-  
-})
+
+
+
+
+fetch('https://jsonplaceholder.typicode.com/posts/')
+  .then((response) => response.json())
+  .then((json) => {
+    json.forEach((json) => {
+      const div = document.createElement('div')
+      div.setAttribute('class', 'card')
+      div.classList.add('mt-2', 'border', 'text-xl', 'border-[#333]', 'border-2', 'w-[500px]', 'mx-auto', 'p-6')
+      div.innerHTML = `id:${json.id}<br> Title:${json.title}`
+      container.appendChild(div)
+  console.log(json);
+    })
+
+
+  });
+
+
+
 
 
